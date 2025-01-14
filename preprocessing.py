@@ -1,5 +1,6 @@
 import polars as pl
 import streamlit as st
+import pandas as pd
 
 # link dove trovare il dataset
 # https://catalog.data.gov/dataset/accidental-drug-related-deaths-2012-2018
@@ -46,9 +47,45 @@ def carica_dati():
                 pl.col("Date").dt.year().alias("Year").cast(pl.Int64),
                 pl.col("Date").dt.month().alias("Month").cast(pl.Int64),
                 pl.col("Date").dt.day().alias("Day").cast(pl.Int64),
-                pl.col("Date").dt.quarter().alias("Quarter").cast(pl.Int64) # aggiungo anche il trimestre (= quarter in inglese)
+                pl.col("Date").dt.quarter().alias("Quarter").cast(pl.Int64), # aggiungo anche il trimestre (= quarter in inglese)
+                pl.col("Date").dt.weekday().alias("DayOfWeek").cast(pl.Int64)
             ])
     )
+
+    # creo un dizionario per la mappare i giorni della settimana salvati nella varaiabile DayOfWeek
+    giorno_settimana = {
+        0: "Lunedì",
+        1: "Martedì",
+        2: "Mercoledì",
+        3: "Giovedì",
+        4: "Venerdì",
+        5: "Sabato",
+        6: "Domenica"
+    }
+
+    nomi_mesi = {
+        1: "Gennaio",
+        2: "Febbraio",
+        3: "Marzo",
+        4: "Aprile",
+        5: "Maggio",
+        6: "Giugno",
+        7: "Luglio",
+        8: "Agosto",
+        9: "Settembre",
+        10: "Ottobre",
+        11: "Novembre",
+        12: "Dicembre"
+    }
+
+    # converto il dataset in un dataframe pandas per poter applicare map
+    dati_pd = dati.to_pandas()
+
+    dati_pd["DayOfWeek"] = dati_pd["DayOfWeek"].map(giorno_settimana)
+    dati_pd["Month"] = dati_pd["Month"].map(nomi_mesi)
+
+    # ritorno a un dataframe polars
+    dati = pl.from_pandas(dati_pd)
 
     # conversione dei valori delle colonne relative alle droghe in valori binari, questo per comodità nei successivi calcoli
     # (Y = 1, altrimenti = 0)
@@ -84,7 +121,7 @@ def carica_dati():
     dati = dati.drop("Month").insert_column(4, dati.get_column("Month"))
     dati = dati.drop("Day").insert_column(5, dati.get_column("Day"))
     dati = dati.drop("Quarter").insert_column(6, dati.get_column("Quarter"))
-
+    dati = dati.drop("DayOfWeek").insert_column(7, dati.get_column("DayOfWeek"))
     return dati
 
 
