@@ -61,6 +61,7 @@ def main():
     dati = carica_dati()
     colonne_droga = get_droghe()
 
+    # realizzo delle anchor all'interno della pagina per 'aggrapparmi' ai capitoli
 
     st.markdown('<div id="introduzione"></div>', unsafe_allow_html=True)
     intro_descrittiva()
