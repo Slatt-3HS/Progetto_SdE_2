@@ -10,7 +10,7 @@ def get_droghe():
     funzione fatta per estrarre le colonne relative alle droghe dal dataset (variabili binarie)
     """
     colonne_droga = [
-        'Heroin', 'Heroin death certificate (DC)', 'Cocaine', 'Fentanyl', 'Fentanyl Analogue',
+        'Heroin', 'Cocaine', 'Fentanyl', 'Fentanyl Analogue',
         'Oxycodone', 'Oxymorphone', 'Ethanol', 'Hydrocodone',
         'Benzodiazepine', 'Methadone', 'Meth/Amphetamine', 'Amphet', 'Tramad',
         'Hydromorphone', 'Morphine (Not Heroin)', 'Xylazine', 'Gabapentin',
@@ -47,10 +47,15 @@ def carica_dati():
                 pl.col("Date").dt.year().alias("Year").cast(pl.Int64),
                 pl.col("Date").dt.month().alias("Month").cast(pl.Int64),
                 pl.col("Date").dt.day().alias("Day").cast(pl.Int64),
+                pl.col("Date").dt.month().alias("Month_num").cast(pl.Int64),
+                pl.col("Date").dt.day().alias("Day_num").cast(pl.Int64),
                 pl.col("Date").dt.quarter().alias("Quarter").cast(pl.Int64), # aggiungo anche il trimestre (= quarter in inglese)
                 pl.col("Date").dt.weekday().alias("DayOfWeek").cast(pl.Int64)
+
             ])
     )
+
+    dati = dati.with_columns((pl.col("Year") * 100 + pl.col("Month_num")).alias("YearMonth"))
 
     # creo un dizionario per la mappare i giorni della settimana salvati nella varaiabile DayOfWeek
     giorno_settimana = {
@@ -115,13 +120,16 @@ def carica_dati():
         .alias("Longitudine")
     ])
 
-    # dato che colonne, relative alla data, create prima vengono messe alla fine, le sposto all'inizio per una migliore visualizzazione
-    # le sposto in posizione 3,4,5,6
+    # dato che colonne relative alla data create prima vengono messe alla fine, le sposto all'inizio per una migliore visualizzazione
+
     dati = dati.drop("Year").insert_column(3, dati.get_column("Year"))
     dati = dati.drop("Month").insert_column(4, dati.get_column("Month"))
-    dati = dati.drop("Day").insert_column(5, dati.get_column("Day"))
+    dati = dati.drop("Month_num").insert_column(5, dati.get_column("Month_num"))
     dati = dati.drop("Quarter").insert_column(6, dati.get_column("Quarter"))
-    dati = dati.drop("DayOfWeek").insert_column(7, dati.get_column("DayOfWeek"))
+    dati = dati.drop("Day").insert_column(7, dati.get_column("Day"))
+    dati = dati.drop("Day_num").insert_column(8, dati.get_column("Day_num"))
+    dati = dati.drop("DayOfWeek").insert_column(9, dati.get_column("DayOfWeek"))
+
     return dati
 
 

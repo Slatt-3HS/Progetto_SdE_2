@@ -72,19 +72,7 @@ def intro_descrittiva():
     - Età, sesso e etnia della vittima. 
     - Tipi di droghe implicate, rappresentate in variabili binarie (0 = non rilevata in corpo, 1 = altrimenti)
     - Coordinate geografiche del luogo di decesso
-    
-    **Preprocessing dei dati**
-    
-    Per rendere i dati completi, coerenti e pronti per l'analisi, è stato effettuato un preprocessing dei dati dove sono state eseguite le seguenti operazioni:
-    - Conversione delle date in formato datetime e creazione di colonne aggiuntive per anno, mese, giorno e trimestre.
-    - Gestione dei valori mancanti:
-        - Età: sostituiti con la media (solo 2 NA)
-        - Sesso e etnia: sostituiti con "Unknown"
-        - Contea di morte: sostituiti con "Unknown"
-    - Estrazione di latitudine e longitudine dalla colonna contenente le informazioni sul luogo di decesso.
-    - Conversione dei valori di alcune variabili in formato intero per facilitare l'analisi
-    - Riordino delle colonne per migliorare la leggibilità
-    
+
     ---
     """)
 

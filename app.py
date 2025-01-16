@@ -13,7 +13,7 @@ st.set_page_config(
 st.markdown('''
 <style>
 [data-testid="stSidebar"] {
-    background-color: #f0f2f6;
+    background-color: #f5f5f5;
 }
 .stMetric {
     background-color: #ffffff;
@@ -32,6 +32,17 @@ st.markdown('''
 }
 </style>
 ''', unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <style>
+    body {
+        background-color: #f5f5f5;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 from preprocessing import carica_dati, get_droghe
