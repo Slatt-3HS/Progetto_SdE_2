@@ -68,6 +68,7 @@ Con `uv`, non è necessario configurare manualmente un ambiente virtuale o insta
 Dal terminale entrare nella cartella dove è salvato il progeeto e eseguire il comando:
 ```bash
 uv run streamlit run app.py
+```
 
 ## Studente
 Telly Ibrahim Guindo (Mat. 2077790)
