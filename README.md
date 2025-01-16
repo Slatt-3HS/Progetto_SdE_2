@@ -9,16 +9,16 @@ Questo progetto utilizza dati reali per analizzare le morti da overdose in Conne
 
 ## Struttura del Progetto
 ### File Python
-- **`app.py`**: Script principale che integra tutte le analisi con Streamlit.
-- **`preprocessing.py`**: Modulo per il caricamento e preprocessing dei dati.
-- **`intro_descrittiva.py`**: Introduzione e contesto del problema.
-- **`analisi_geografica.py`**: Analisi geografica e creazione di mappe interattive.
-- **`analisi_stat.py`**: Modelli statistici per identificare correlazioni tra sostanze.
-- **`classe_Grafici.py`**: Classe per la generazione di grafici standardizzati.
-- **`barra_laterale.py`**: Creazione della barra laterale per la navigazione.
+- **app.py**: Script principale che integra tutte le analisi con Streamlit.
+- **preprocessing.py**: Modulo per il caricamento e preprocessing dei dati.
+- **intro_descrittiva.py**: Introduzione e contesto del problema.
+- **analisi_geografica.py**: Analisi geografica e creazione di mappe interattive.
+- **analisi_stat.py**: Modelli statistici per identificare correlazioni tra sostanze.
+- **classe_Grafici.py**: Classe per la generazione di grafici standardizzati.
+- **barra_laterale.py**: Creazione della barra laterale per la navigazione.
 
 ### File CSV
-- **`morti_droga.csv`**: Dataset principale contenente le informazioni sui decessi.
+- **morti_droga.csv**: Dataset principale contenente le informazioni sui decessi.
 
 ---
 
@@ -35,10 +35,10 @@ Il progetto utilizza le seguenti librerie e pacchetti Python:
 
 ### Librerie di Supporto
 - **Numpy**: Per operazioni matematiche e manipolazione di array numerici.
-- **`Pandas**: Per alcune funzioni compatibili con altre librerie utilizzate nel progetto.
-- **`Scipy**: Per il calcolo delle stime di densità tramite il metodo del kernel.
-- **`Streamlit-folium**: Per integrare le mappe create con Folium direttamente nell'app Streamlit.
-- **`Matplotlib**: Supporto aggiuntivo per visualizzazioni grafiche.
+- **Pandas**: Per alcune funzioni compatibili con altre librerie utilizzate nel progetto.
+- **Scipy**: Per il calcolo delle stime di densità tramite il metodo del kernel.
+- **Streamlit-folium**: Per integrare le mappe create con Folium direttamente nell'app Streamlit.
+- **Matplotlib**: Supporto aggiuntivo per visualizzazioni grafiche.
 
 ---
 
