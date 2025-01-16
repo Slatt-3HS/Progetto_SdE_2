@@ -22,6 +22,26 @@ Questo progetto utilizza dati reali per analizzare le morti da overdose in Conne
 
 ---
 
+## Librerie e Pacchetti Utilizzati
+
+Il progetto utilizza le seguenti librerie e pacchetti Python:
+
+### Librerie Principali
+- **Streamlit**: Per creare un'interfaccia web interattiva e facile da utilizzare.
+- **Polars**: Per la manipolazione ed elaborazione di dati.
+- **Altair**: Per la creazione di grafici.
+- **Folium**: Per generare mappe interattive e visualizzare dati geografici.
+- **Scikit-learn**: Per costruire e addestrare modelli statistici (regressione logistica nel nostro caso).
+
+### Librerie di Supporto
+- **Numpy**: Per operazioni matematiche e manipolazione di array numerici.
+- **`Pandas**: Per alcune funzioni compatibili con altre librerie utilizzate nel progetto.
+- **`Scipy**: Per il calcolo delle stime di densità tramite il metodo del kernel.
+- **`Streamlit-folium**: Per integrare le mappe create con Folium direttamente nell'app Streamlit.
+- **`Matplotlib**: Supporto aggiuntivo per visualizzazioni grafiche.
+
+---
+
 ## Dati Utilizzati
 - **Fonte**: [Data.gov](https://catalog.data.gov/dataset/accidental-drug-related-deaths-2012-2018).
 - **Descrizione**:
