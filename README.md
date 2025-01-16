@@ -59,6 +59,16 @@ Questo progetto utilizza dati reali per analizzare le morti da overdose in Conne
 
 ---
 
+## Guida all'Esecuzione del Progetto
+
+`uv` è un gestore di dipendenze Python che automatizza la configurazione degli ambienti virtuali e semplifica l'installazione delle librerie richieste. 
+Con `uv`, non è necessario configurare manualmente un ambiente virtuale o installare pacchetti, tutto viene gestito automaticamente.
+
+**Comando principale:**
+Dal terminale entrare nella cartella dove è salvato il progeeto e eseguire il comando:
+```bash
+uv run streamlit run app.py
+
 ## Studente
 Telly Ibrahim Guindo (Mat. 2077790)
 
