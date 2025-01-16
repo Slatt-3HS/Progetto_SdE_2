@@ -65,7 +65,7 @@ Questo progetto utilizza dati reali per analizzare le morti da overdose in Conne
 Con `uv`, non è necessario configurare manualmente un ambiente virtuale o installare pacchetti, tutto viene gestito automaticamente.
 
 **Comando principale:**
-Dal terminale entrare nella cartella dove è salvato il progeeto e eseguire il comando:
+Dal terminale entrare nella cartella dove è salvato il progeeto, dopo aver scaricato la zip o clonato la repository, e eseguire il comando:
 ```bash
 uv run streamlit run app.py
 ```
